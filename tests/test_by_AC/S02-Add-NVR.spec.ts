@@ -43,7 +43,7 @@ test.beforeEach(async ({ page }) => {
         await expect(page.locator('div').filter({ hasText: /^Create$/ }).nth(1)).toBeDisabled();
     });
     
-    test('Add NVR(No data)', async ({ page }) => {
+    test('Add NVR(Wrong data)', async ({ page }) => {
         await page.getByRole('button', { name: 'Create NVR & Camera' }).click();
         await page.locator('input[name="name"]').fill('automate');
         await page.locator('input[name="ip"]').fill('test');
