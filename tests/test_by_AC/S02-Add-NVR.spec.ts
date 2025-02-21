@@ -5,7 +5,7 @@ const authPath = 'tests/test_by_AC/auth.json';
 //test.use({ storageState: 'tests/test_by_AC/auth.json' });
 
 test.beforeEach(async ({ page }) => {
-    await page.goto('await page.goto('chrome-error://chromewebdata/');');
+    await page.goto('https://masterdata-sit.larry-cctv.com/auth/sign-in');
     await page.waitForLoadState('load');
     await page.locator('input[name="user_name"]').fill('surachaizx');
     await page.locator('input[name="user_password"]').fill('zxzx88zxzx');
