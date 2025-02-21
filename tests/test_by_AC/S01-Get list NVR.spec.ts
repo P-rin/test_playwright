@@ -1,6 +1,4 @@
 import { test ,expect } from "@playwright/test";
-import exp from "constants";
-import fs from "fs";
 
 const authPath = 'tests/test_by_AC/auth.json';
 

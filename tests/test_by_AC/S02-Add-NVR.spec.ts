@@ -1,5 +1,4 @@
 import { test ,expect } from "@playwright/test";
-import fs from "fs";
 
 const authPath = 'tests/test_by_AC/auth.json';
 
@@ -74,4 +73,17 @@ test.beforeEach(async ({ page }) => {
         await page.locator('input[name="longitude"]').fill('100.79377');
         await page.getByRole('button', { name: 'Create' }).click();
         await expect(page.getByText('create failed.')).toBeVisible();
+    });
+
+    
+test('S02-TC03', async ({page}) => {
+    await page.goto('https://sit.larry-cctv.com/login');
+    await page.getByRole('textbox', { name: 'E-mail' }).click();
+    await page.getByRole('textbox', { name: 'E-mail' }).fill('superadmin@gmail.com');
+    await page.getByRole('textbox', { name: 'Password' }).click();
+    await page.getByRole('textbox', { name: 'Password' }).fill('superadmin');
+    await page.getByRole('button', { name: 'Login' }).click();
+    await page.waitForLoadState('load');
+    await page.getByRole('textbox', { name: 'Search by Device...' }).click();
+    await page.getByRole('textbox', { name: 'Search by Device...' }).fill('automate');
     });
